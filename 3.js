@@ -28,7 +28,7 @@ function task3() {
   }
 
   function promise2() {
-    return new Promise((resolve, reject) => {
+    return new Promise((_, reject) => {
       setTimeout(() => {
         reject("Проміс 2 відхилено");
       }, 2000);
@@ -36,15 +36,21 @@ function task3() {
   }
 
   Promise.allSettled([promise1(), promise2()])
-    .then((results) => {
+    .then((results) =>
       results.forEach((result, index) => {
-        if (result.status === "fulfilled") {
-          console.log(`Проміс ${index + 1} вирішено:`, result.value);
-        } else if (result.status === "rejected") {
-          console.log(`Проміс ${index + 1} відхилено:`, result.value);
-        }
-      });
-    })
+        // Для кожного результату виводимо статус проміса
+        console.log(`Проміс ${index + 1}: ${result.status}`);
+      })
+    )
+    //======
+    // { results.forEach((result, index) => {
+    //     if (result.status === "fulfilled") {
+    //       console.log(`Проміс ${index + 1} вирішено:`, result.value);
+    //     } else if (result.status === "rejected") {
+    //       console.log(`Проміс ${index + 1} відхилено:`, result.value);
+    //     }
+    //   });
+    // })
     .finally(() => {
       console.log("Завдання 3 завершено");
     });

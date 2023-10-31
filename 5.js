@@ -25,7 +25,7 @@ function task5() {
       counter++;
       console.log(`Значення лічильника: ${counter}`);
 
-      if (counter === 5) {
+      if (counter >= 5) {
         clearInterval(interval);
         resolve(counter);
       }

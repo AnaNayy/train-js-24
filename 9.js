@@ -11,6 +11,7 @@ function task9() {
   function fetchFakeData() {
     const errorMessage = "Помилка при з'єднанні з сервером";
     return Promise.reject(errorMessage);
+    // return Promise.reject(new Error(errorMessage));
   }
   fetchFakeData()
     .then((data) => {

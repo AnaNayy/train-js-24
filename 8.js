@@ -17,9 +17,9 @@ function task8() {
   fetchFakeData()
     .then((data) => {
       console.log(data);
-    })
+    }) //  .then((data) => console.log(data))
     .catch((error) => {
-      console.error("Error:", error);
+      console.error("Error:", error); // .catch((error) => console.log(error));
     });
 }
 
